@@ -1,4 +1,4 @@
-CampusPe Python Assignment
+CampusPe Python Assignment / Generative Ai
 
 Name: Kavya L  
 USN: 1NH22CS111
