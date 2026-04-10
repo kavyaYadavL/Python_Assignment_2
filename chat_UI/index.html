@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat UI - CampusPe Assignment</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Hamburger Menu Button (Mobile) -->
+    <button class="menu-btn d-md-none" id="menuBtn" title="Toggle menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Main Container -->
+    <div class="app-container d-flex">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar p-3">
+            <!-- New Chat Button -->
+            <button class="btn btn-primary w-100 mb-4" id="newChatBtn">
+                <i class="fas fa-plus me-2"></i> New Chat
+            </button>
+
+            <!-- Chat History -->
+            <div class="chat-history flex-grow-1">
+                <h6 class="text-muted mb-3">Chat History</h6>
+                <div class="history-items">
+                    <div class="history-item p-2 mb-2">
+                        <i class="fas fa-message me-2"></i>
+                        <span>Chat 1</span>
+                    </div>
+                    <div class="history-item p-2 mb-2">
+                        <i class="fas fa-message me-2"></i>
+                        <span>Chat 2</span>
+                    </div>
+                    <div class="history-item p-2 mb-2">
+                        <i class="fas fa-message me-2"></i>
+                        <span>Chat 3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Profile -->
+            <div class="profile border-top pt-3">
+                <div class="d-flex align-items-center">
+                    <div class="avatar-sm me-3">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <p class="mb-0 small">User Profile</p>
+                        <small class="text-muted">Premium</small>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CHAT AREA -->
+        <main class="chat-container d-flex flex-column">
+
+            <!-- WELCOME SCREEN -->
+            <section class="welcome-screen text-center">
+                <div class="welcome-content">
+                    <h1 class="mb-2">Welcome 👋</h1>
+                    <p class="text-muted mb-4">What would you like to do today?</p>
+
+                    <!-- Suggestion Cards Grid -->
+                    <div class="row g-3 mt-3">
+                        <div class="col-md-6">
+                            <div class="card suggestion-card p-3">
+                                <div class="card-icon">💻</div>
+                                <h6 class="card-title">Code Help</h6>
+                                <p class="card-description">Get assistance with programming</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card suggestion-card p-3">
+                                <div class="card-icon">💡</div>
+                                <h6 class="card-title">Ideas</h6>
+                                <p class="card-description">Brainstorm new ideas</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card suggestion-card p-3">
+                                <div class="card-icon">📚</div>
+                                <h6 class="card-title">Study</h6>
+                                <p class="card-description">Learn something new</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card suggestion-card p-3">
+                                <div class="card-icon">✍️</div>
+                                <h6 class="card-title">Write</h6>
+                                <p class="card-description">Get writing assistance</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MESSAGES DISPLAY AREA -->
+            <section class="messages flex-grow-1 p-3" id="chatBox" aria-live="polite"></section>
+
+            <!-- TYPING INDICATOR -->
+            <div class="typing-indicator d-none px-3" id="typing">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- INPUT AREA -->
+            <footer class="input-area p-3">
+                <div class="input-wrapper d-flex align-items-flex-end gap-2">
+                    <!-- Attach Button -->
+                    <button class="btn btn-outline-secondary" id="attachBtn" title="Attach file">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+
+                    <!-- Message Input -->
+                    <textarea 
+                        id="messageInput" 
+                        class="form-control" 
+                        placeholder="Type a message..." 
+                        rows="1"
+                        spellcheck="true"></textarea>
+
+                    <!-- Send Button -->
+                    <button id="sendBtn" class="btn btn-primary" disabled title="Send message">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+
+                <!-- Helper Text -->
+                <small class="text-muted d-block mt-2">
+                    <i class="fas fa-info-circle me-1"></i>
+                    Press <kbd>Enter</kbd> to send, <kbd>Shift+Enter</kbd> for new line
+                </small>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <!-- Overlay for Mobile Sidebar -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="js/chat.js"></script>
+
+</body>
+</html>
